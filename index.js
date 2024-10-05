@@ -92,7 +92,7 @@ app.get("/todos", auth, async (req, res) => {
   res.json(todos);
 });
 
-app.patch("/todos/:id/complete", auth, async (req, res) => {
+app.patch("/todo/:id/complete", auth, async (req, res) => {
   const userId = req.userId;
   const todoId = req.params.id;
 
