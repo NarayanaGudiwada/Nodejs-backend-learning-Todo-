@@ -69,19 +69,30 @@ app.post("/signin", async (req, res) => {
 });
 
 app.post("/todo", auth, async (req, res) => {
-  const userId = req.userId;
-  const { title, done } = req.body;
-  const testObj = {
-    userId,
-    title,
-    done,
-  };
+  try {
+    const userId = req.userId;
+    const { title, tobeDoneBy } = req.body;
+    const createdAt = Math.floor(Date.now() / 1000);
 
-  await TodoModel.create(testObj);
-
-  res.status(200).json({
-    message: "success",
-  });
+    if (createdAt > tobeDoneBy) {
+      res.status(400).json({
+        message: "Invalid completion Time",
+      });
+    } else {
+      await TodoModel.create({
+        userId,
+        title,
+        tobeDoneBy
+      });
+      res.status(200).json({
+        message: "Success",
+      });
+    }
+  } catch (e) {
+    res.status(500).json({
+      message: "Interval Server Error",
+    });
+  }
 });
 
 app.get("/todos", auth, async (req, res) => {

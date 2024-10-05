@@ -14,7 +14,15 @@ const User = new Schema({
 
 const Todo = new Schema({
     title: String,
-    done: Boolean,
+    done: {
+        type: Boolean,
+        default: false
+    },
+    createdAt: {
+        type: Number,
+        default: () => { Math.floor(Date.now()/1000)}
+    },
+    tobeDoneBy : Number,
     userId: ObjectId
 })
 
