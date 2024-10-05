@@ -32,6 +32,30 @@ my-express-app/
 │   │   └── todoValidation.js   # todo input validations
 │   ├── app.js                   # Main application file
 │   └── server.js                # Entry point of the application
+|
+├── tests/                       # Test cases directory
+│   ├── controllers/             # Tests for controllers
+│   │   ├── userController.test.js
+│   │   └── productController.test.js
+│   ├── middlewares/             # Tests for middlewares
+│   │   ├── auth.test.js
+│   │   └── errorHandler.test.js
+│   ├── models/                  # Tests for models
+│   │   ├── User.test.js
+│   │   └── Product.test.js
+│   ├── routes/                  # Tests for routes
+│   │   ├── userRoutes.test.js
+│   │   └── productRoutes.test.js
+│   ├── services/                # Tests for services
+│   │   ├── userService.test.js
+│   │   └── productService.test.js
+│   ├── utils/                   # Tests for utility functions
+│   │   ├── logger.test.js
+│   │   └── helper.test.js
+│   ├── validations/             # Tests for validations
+│   │   ├── userValidation.test.js
+│   │   └── productValidation.test.js
+│   └── setup.js         
 ├── .env                         # Environment variables
 ├── .gitignore                   # Git ignore file
 ├── package.json                 # NPM package file
