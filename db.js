@@ -10,7 +10,7 @@ const User = new Schema({
     },
     password: String,
     name: String
-})
+}, {timestamps: true})
 
 const Todo = new Schema({
     title: String,
@@ -18,13 +18,12 @@ const Todo = new Schema({
         type: Boolean,
         default: false
     },
-    createdAt: {
-        type: Number,
-        default: () => { Math.floor(Date.now()/1000)}
-    },
-    tobeDoneBy : Number,
-    userId: ObjectId
-})
+    tobeDoneBy : Date,
+    userId:{
+        type: ObjectId,
+        ref: 'User'
+    } 
+}, {timestamps: true})
 
 const UserModel = mongoose.model('users', User);
 const TodoModel = mongoose.model('Todos', Todo);
