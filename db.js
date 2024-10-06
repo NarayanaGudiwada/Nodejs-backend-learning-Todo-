@@ -21,7 +21,7 @@ const Todo = new Schema({
     tobeDoneBy : Date,
     userId:{
         type: ObjectId,
-        ref: 'User'
+        ref: 'Users'
     } 
 }, {timestamps: true})
 
